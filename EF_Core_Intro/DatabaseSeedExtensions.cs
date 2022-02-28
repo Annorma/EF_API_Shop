@@ -9,27 +9,24 @@ namespace EF_Core_Intro
 {
     public static class DatabaseSeedExtensions
     {
-        public static void SeedDepartments(this ModelBuilder modelBuilder)
+        public static void SeedPositions(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Department>().HasData(new[]
+            modelBuilder.Entity<Position>().HasData(new[]
             {
-                new Department()
+                new Position()
                 {
-                    Number = 1,
-                    Name = "Security Programming",
-                    Phone = "3455-223-44"
+                    Id = 1,
+                    Name = "Admin"
                 },
-                new Department()
+                new Position()
                 {
-                    Number = 2,
-                    Name = "Design",
-                    Phone = "45462-223-44"
+                    Id = 2,
+                    Name = "Designer"
                 },
-                new Department()
+                new Position()
                 {
-                    Number = 3,
-                    Name = "Admin Department",
-                    Phone = "101010-44-44"
+                    Id = 3,
+                    Name = "Programmer"
                 }
             });
         }
@@ -45,35 +42,61 @@ namespace EF_Core_Intro
                 new Country()
                 {
                     Id = 2,
-                    Name = "Poland",
+                    Name = "USA",
                 },
                 new Country()
                 {
                     Id = 3,
-                    Name = "Italy",
+                    Name = "China",
                 },
                 new Country()
                 {
                     Id = 4,
-                    Name = "Spain",
+                    Name = "Turkey",
                 }
             });
         }
-        public static void SeedProjects(this ModelBuilder modelBuilder)
+        public static void SeedCategories(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Project>().HasData(new[]
+            modelBuilder.Entity<Category>().HasData(new[]
             {
-                new Project()
+                new Category()
                 {
                     Id = 1,
-                    Title = "Eco Project in Rivne",
-                    Description = "Helps people to sort the rubbish."
+                    Name = "Devices"
                 },
-                new Project()
+                new Category()
                 {
                     Id = 2,
-                    Title = "Vets-Pets",
-                    Description = "Helps people to find animals."
+                    Name = "Food",
+                },
+                new Category()
+                {
+                    Id = 3,
+                    Name = "Cars",
+                },
+                new Category()
+                {
+                    Id = 4,
+                    Name = "Furniture",
+                }
+            });
+        }
+        public static void SeedCities(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<City>().HasData(new[]
+            {
+                new City()
+                {
+                    Id = 1,
+                    Name = "New York",
+                    Country = null
+                },
+                new City()
+                {
+                    Id = 2,
+                    Name = "Kyiv",
+                    Country = null
                 }
             });
         }

@@ -4,20 +4,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EF_Core_Intro
 {
-    [Table("Countries")]
-    public class Country
+    [Table("Workers")]
+    public class Category
     {
-        public Country()
+        public Category()
         {
-            Cities = new HashSet<City>();
+            Products = new HashSet<Product>();
         }
 
         public int Id { get; set; }
 
-        [Required, MaxLength(100)]
+        [Required, MaxLength(60)]
         public string Name { get; set; }
 
         // Navigation Properties
-        public ICollection<City> Cities { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

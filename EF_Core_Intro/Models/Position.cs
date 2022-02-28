@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EF_Core_Intro
 {
-    public class Department
+    [Table("Positions")]
+    public class Position
     {
-        public Department()
+        public Position()
         {
             Workers = new HashSet<Worker>();
         }
 
-        [Key]   // set primary key
-        public int Number { get; set; }
-        [Required, MaxLength(250)]
+        public int Id { get; set; }
+
+        [Required, MaxLength(80)]
         public string Name { get; set; }
-        [MaxLength(40)]
-        public string Phone { get; set; }
 
         // Navigation Properties
         public ICollection<Worker> Workers { get; set; }

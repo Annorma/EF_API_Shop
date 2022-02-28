@@ -8,26 +8,26 @@ namespace EF_Core_Intro
     {
         static void Main(string[] args)
         {
-            SSCompanyDb db = new SSCompanyDb();
+            ShopDb db = new ShopDb();
 
-            var result = db.Departments.Include(d => d.Workers); // get data from nav prop
-
-            foreach (var item in result)
+            foreach (var item in db.Cities)
             {
-                Console.WriteLine($"Department #{item.Number} {item.Name} {item.Phone ?? "Without Phone Number"} {item.Workers.Count}");
+                Console.WriteLine($"City #{item.Id} {item.Name} {item.Country}");
             }
 
-            var goodWorkers = db.Workers.Include(w => w.Country)
-                                        .Include(w => w.Projects)
-                                        .Include(w => w.Department)
-                                        .Where(w => w.Salary > 1000);
-
-            foreach (var w in goodWorkers)
+            foreach (var item in db.Countries)
             {
-                Console.WriteLine($"Worker {w.FullName} with salary of {w.Salary}$\n" +
-                    $"Department: {w.Department.Name}\n" +
-                    $"Country: {(w.Country != null ? w.Country.Name : "no country")}\n" +
-                    $"Projects: {w.Projects.Count}");
+                Console.WriteLine($"Country #{item.Id} {item.Name}");
+            }
+
+            foreach (var item in db.Positions)
+            {
+                Console.WriteLine($"Position #{item.Id} {item.Name}");
+            }
+
+            foreach (var item in db.Categories)
+            {
+                Console.WriteLine($"Category #{item.Id} {item.Name}");
             }
         }
     }

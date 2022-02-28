@@ -11,7 +11,7 @@ namespace EF_Core_Intro
     {
         public City()
         {
-            Positions = new HashSet<Position>();
+            Shops = new HashSet<Shop>();
         }
         // Properties (columns in db)
         // Primary Key: Id/ID/id EntityName+Id (WorkerId)
@@ -19,17 +19,10 @@ namespace EF_Core_Intro
         [Required]          // set not null
         [MaxLength(100)]    // set max length NVarChar(100)
         public string Name { get; set; }
-        [Required, MaxLength(100)]
-        public string Surname { get; set; }
 
         // Navigation Properties
-
-        // Relationship Type: 1...* (One to Many)
         [Required]
-        public Department Department { get; set; }
-        // Relationship Type: 0/1...* (Zero or One to Many)
         public Country Country { get; set; }
-        // Relationship Type: *...* (Many to Many)
-        public ICollection<Position> Positions { get; set; }
+        public ICollection<Shop> Shops { get; set; }
     }
 }
