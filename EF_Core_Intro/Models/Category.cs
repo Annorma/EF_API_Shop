@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EF_Core_Intro
+namespace ShopDbApp
 {
     [Table("Workers")]
     public class Category
@@ -13,11 +13,8 @@ namespace EF_Core_Intro
         }
 
         public int Id { get; set; }
-
-        [Required, MaxLength(60)]
         public string Name { get; set; }
 
-        // Navigation Properties
         public ICollection<Product> Products { get; set; }
     }
 }

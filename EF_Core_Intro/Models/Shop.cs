@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EF_Core_Intro
+namespace ShopDbApp
 {
     [Table("Shops")]
     public class Shop
@@ -10,6 +10,7 @@ namespace EF_Core_Intro
         public Shop()
         {
             Workers = new HashSet<Worker>();
+            Products = new HashSet<Product>();
         }
 
         public int Id { get; set; }
@@ -20,9 +21,11 @@ namespace EF_Core_Intro
         [Required]
         public string Address { get; set; }
 
-        // Navigation Properties
         [Required, MaxLength(20)]
-        public int ParkingArea { get; set; }
+        public int? ParkingArea { get; set; }
+
+        public City City { get; set; }
         public ICollection<Worker> Workers { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

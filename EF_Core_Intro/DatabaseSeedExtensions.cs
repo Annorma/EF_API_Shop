@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EF_Core_Intro
+namespace ShopDbApp
 {
     public static class DatabaseSeedExtensions
     {
@@ -86,17 +86,29 @@ namespace EF_Core_Intro
         {
             modelBuilder.Entity<City>().HasData(new[]
             {
-                new City()
+                new
                 {
                     Id = 1,
                     Name = "New York",
-                    Country = null
+                    CountryId = 1
                 },
-                new City()
+                new
                 {
                     Id = 2,
                     Name = "Kyiv",
-                    Country = null
+                    CountryId = 2
+                },
+                new
+                {
+                    Id = 3,
+                    Name = "Paris",
+                    CountryId = 3
+                },
+                new
+                {
+                    Id = 4,
+                    Name = "Washington",
+                    CountryId = 4
                 }
             });
         }
