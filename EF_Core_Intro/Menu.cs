@@ -110,7 +110,6 @@ public class Menu
                 Console.Write("Enter new name: ");
                 string name = Console.ReadLine();
                 queries.AddCountry(name);
-                Console.ReadKey();
             }
             else if (num == 7)
             {
@@ -121,7 +120,6 @@ public class Menu
                 Console.Write("Enter new country name: ");
                 string countryName = Console.ReadLine();
                 queries.AddCity(name, countryName);
-                Console.ReadKey();
             }
             else if (num == 8)
             {
@@ -134,7 +132,6 @@ public class Menu
                 Console.Write("Enter city name: ");
                 string cityName = Console.ReadLine();
                 queries.AddShop(name, address, cityName);
-                Console.ReadKey();
             }
             else if (num == 9)
             {
@@ -155,7 +152,6 @@ public class Menu
                 Console.Write("Enter new shop id: ");
                 int shopId = int.Parse(Console.ReadLine());
                 queries.AddWorker(name, surname, salary, email, phoneNumber, positionId, shopId);
-                Console.ReadKey();
             }
             else if (num == 10)
             {
