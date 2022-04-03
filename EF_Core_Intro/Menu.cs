@@ -17,10 +17,10 @@ public class Menu
     {
         Console.Clear();
         Console.WriteLine("1 - Show all workers");
-        Console.WriteLine("2 - Show all shops");
-        Console.WriteLine("3 - Show all countries");
-        Console.WriteLine("4 - Show all cities");
-        Console.WriteLine("5 - Show all positions");
+        Console.WriteLine("2 - Show all positions");
+        Console.WriteLine("3 - Show all shops");
+        Console.WriteLine("4 - Show all countries");
+        Console.WriteLine("5 - Show all cities");
         Console.WriteLine("6 - Add country");
         Console.WriteLine("7 - Add city");
         Console.WriteLine("8 - Add shop");
@@ -66,6 +66,16 @@ public class Menu
             else if (num == 2)
             {
                 Console.Clear();
+                var result = queries.GetAllPositions();
+                foreach (var item in result)
+                {
+                    Console.WriteLine($"Position #{item.Id} {item.Name}");
+                }
+                Console.ReadKey();
+            }
+            else if (num == 3)
+            {
+                Console.Clear();
                 var result = queries.GetAllShops();
                 foreach (var item in result)
                 {
@@ -73,8 +83,9 @@ public class Menu
                 }
                 Console.ReadKey();
             }
-            else if (num == 3)
+            else if (num == 4)
             {
+
                 Console.Clear();
                 var result = queries.GetAllCountries();
                 foreach (var item in result)
@@ -83,23 +94,13 @@ public class Menu
                 }
                 Console.ReadKey();
             }
-            else if (num == 4)
+            else if (num == 5)
             {
                 Console.Clear();
                 var result = queries.GetAllCities();
                 foreach (var item in result)
                 {
                     Console.WriteLine($"City #{item.Id} {item.Name} {item.Country.Name}");
-                }
-                Console.ReadKey();
-            }
-            else if (num == 5)
-            {
-                Console.Clear();
-                var result = queries.GetAllPositions();
-                foreach (var item in result)
-                {
-                    Console.WriteLine($"Position #{item.Id} {item.Name}");
                 }
                 Console.ReadKey();
             }
